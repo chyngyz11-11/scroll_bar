@@ -1,6 +1,34 @@
-const links = document.querySelectorAll(".item > a")
-for(let i = 0; i < links.length; i++){
-    links[i].onclick = function(){
-        document.getElementById(links[i].getAttribute ("data-link")).scrollIntoView({behavior: "smooth"})
+const score = document.querySelector(".score")
+const result = document.querySelector(".result")
+const scoreBtn = document.querySelector(".score-btn")
+
+console.log(score)
+console.log(result)
+console.log(scoreBtn)
+
+let scoreValue = 0
+const winScore = 5
+
+scoreBtn.addEventListener("click", function () {
+    if (scoreValue >= winScore) {
+        return
     }
-}
+  
+    scoreValue++;
+    score.textContent = scoreValue;
+
+    if (scoreValue === winScore) {
+        result.textContent = winner
+    }
+})
+
+
+const minusBtn = document.querySelector(".minus-btn")
+minusBtn.addEventListener("click", function () {
+  if (scoreValue <= 0) {
+    return
+  }
+
+  scoreValue--;
+  score.textContent = scoreValue;
+})
