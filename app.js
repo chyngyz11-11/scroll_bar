@@ -1,34 +1,26 @@
-const score = document.querySelector(".score")
-const result = document.querySelector(".result")
-const scoreBtn = document.querySelector(".score-btn")
+const subjects_array = ["Физика", "Химия", "География", "Геометрия", "Алгебра",]
 
-console.log(score)
-console.log(result)
-console.log(scoreBtn)
+console.log(subjects_array)
 
-let scoreValue = 0
-const winScore = 5
+const count_subjects = document.querySelector(".count_subjects")
+const subjects = document.querySelector(".subjects")
+const sort_btn = document.querySelector(".sort_btn")
 
-scoreBtn.addEventListener("click", function () {
-    if (scoreValue >= winScore) {
-        return
-    }
-  
-    scoreValue++;
-    score.textContent = scoreValue;
+count_subjects.textContent = `Количество предметов: ${subjects_array.length}`
 
-    if (scoreValue === winScore) {
-        result.textContent = winner
-    }
-})
+function render () { 
+    const subjects_html = subjects_array.map((s) => {
+        return`
+        <li class="subjects">${s}<li>
+        `
+    })
 
+    subjects.innerHTML = subjects_html.join("")
+}
 
-const minusBtn = document.querySelector(".minus-btn")
-minusBtn.addEventListener("click", function () {
-  if (scoreValue <= 0) {
-    return
-  }
+render()
 
-  scoreValue--;
-  score.textContent = scoreValue;
+sort_btn.addEventListener("click", function() {
+    subjects_array.sort((a,b) => a.localeCompare(b))
+    render()
 })
