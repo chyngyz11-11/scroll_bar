@@ -1,26 +1,28 @@
-const subjects_array = ["Физика", "Химия", "География", "Геометрия", "Алгебра",]
+const form = document.querySelector(".form")
+const inputs = document.querySelectorAll("input")
+const result_summary = document.querySelector(".result_summary")
 
-console.log(subjects_array)
+form.addEventListener("submit", function (e) {
+    e.preventDefault()
 
-const count_subjects = document.querySelector(".count_subjects")
-const subjects = document.querySelector(".subjects")
-const sort_btn = document.querySelector(".sort_btn")
+    const weekly_summary_spenses = []
 
-count_subjects.textContent = `Количество предметов: ${subjects_array.length}`
+    inputs.forEach((input) => {
+        if (Number(input.value) === 0) {
+            alert("its empty")
+        }else {
+           weekly_summary_spenses.push(Number(input.value))
+           input.value = ""
 
-function render () { 
-    const subjects_html = subjects_array.map((s) => {
-        return`
-        <li class="subjects">${s}<li>
-        `
+        }
     })
 
-    subjects.innerHTML = subjects_html.join("")
-}
+    const total = weekly_summary_spenses.reduce((sum, value) => sum + value, 0)
 
-render()
+    const average = total / weekly_summary_spenses.length
 
-sort_btn.addEventListener("click", function() {
-    subjects_array.sort((a,b) => a.localeCompare(b))
-    render()
+    result_summary.innerHTML = `
+        <h2 class="total">Total:${total} som</h2>
+        <strong class="average">Average:${average.toFixed(2)} som</strong>
+    `
 })
