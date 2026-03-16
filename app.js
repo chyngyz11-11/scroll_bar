@@ -1,72 +1,98 @@
-let price = 250
-let products = 4
-const result = price * products
-console.log(`The total cost is: ${result}`)
+function showMessage(){
+    console.log("Добро пожаловать в javaScript")
+}
+
+showMessage()
+
+
+function greetUser(name){
+    console.log(`Добрый день,${name}!`)
+}
+
+greetUser("Асан")
+greetUser("Азамат")
+greetUser('Айгуль')
+
+
+function showAge(age){
+    console.log(`Мне ${age} лет`)
+}
+
+showAge(15)
+showAge(38)
+showAge(45)
+
+
+   function findEvenNumbers(array) {
+  let even = []
+
+  for (let num of array) {
+    if (num % 2 === 0) {
+      even.push(num)
+    }
+  }
+
+  return even
+}
+
+console.log(findEvenNumbers([1, 2, 3, 4, 5, 6 ,7, 8, 9, 10]))
+        
+
+
+function findBigNumbers(array) {
+  let big_numbers = []
+
+  for (let i = 0; i <= array.length; i++) {
+    if (array[i] > 5) {
+      big_numbers.push(array[i])
+    }
+  }
+
+  return big_numbers
+}
+
+console.log(findBigNumbers([1, 2, 3, 4, 5, 6 ,7, 8, 9, 10]))
+
+
+function squareArea(a) {
+  return a * a
+}
+
+console.log(squareArea(4))
 
 
 
-let width = 12
-let height = 6
-const area = width * height
-console.log(`Rectangle area: ${area}`)
+function checkNumber(num) {
+  if (num === 10) {
+    console.log("Правильно")
+  } else {
+    console.log("Неправильно")
+  }
+}
+
+checkNumber(10)
+checkNumber(7)
 
 
+function checkEven(num) {
+  if (num % 2 === 0) {
+    console.log("Чётное")
+  } else {
+    console.log("Нечётное")
+  }
+}
 
-let age = 18
-let after = 5
-const will  = age + after
-console.log(`After 5 years i will be: ${will}`)
-
-
-
-let cost = 30000
-let money = 45000
-const left =  money - cost
-console.log(`money left: ${left}`)
+checkEven(4)
+checkEven(5)
 
 
+function checkPassword(password) {
+  if (password === "1234") {
+    console.log("Доступ разрешён")
+  } else {
+    console.log("Неверный пароль")
+  }
+}
 
-let car = 120
-let speed = 2
-const km = car / speed
-console.log(`Average speed: ${km}`)
-
-
-let a = 2;
-let b = 3;
-let sum = a + b;
-console.log("Сумма чисел:", sum);
-
-
-let coste = 100;
-let quantity = 2;
-let totalCost = coste * quantity;
-console.log("Общая стоимость покупки:", totalCost);
-
-
-
-let a1 = 4;
-let a2 = 6;
-let a3 = 8;
-let average = (a1 + a2 + a3) / 3;
-console.log("Среднее арифметическое:", average);
-
-
-
-let length = 5;
-let widt = 4;
-let perimeter = (length + widt) * 2;
-console.log("Периметр прямоугольника:", perimeter);
-
-
-
-let x = 1;
-let y = 2;
-
-let t = x;
-x = y;
-y = t;
-
-console.log("x =", x);
-console.log("y =", y);
-
+checkPassword("1234")
+checkPassword("1111")
